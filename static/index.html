@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="/css/style.css">
+        <script type="text/javascript" src="/lib/socket.io.js"></script>
+        <script type="text/javascript" src="/lib/knockout.js"></script>
+        <script type="text/javascript" src="/lib/knockout-es5.js"></script>
+        <script type="text/javascript" src="/js/handler.js"></script>
+        <script type="text/javascript" src="/js/comment.js"></script>
+        <script type="text/javascript" src="/js/index.js"></script>
+    </head>
+
+    <body>
+        <ul id="messages" data-bind="foreach: rtc.vm.comments">
+            <li data-bind="text: body"></li>
+        </ul>
+        <form>
+            <input autocomplete="off" data-bind="value: rtc.vm.myComment" />
+            <button type="submit" data-bind="click: rtc.submit">Send</button>
+        </form>
+    </body>
+
+</html>

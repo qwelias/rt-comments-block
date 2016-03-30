@@ -1,0 +1,30 @@
+{
+  "name": "rt-comments-block",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://qwemaze@github.com/qwemaze/rt-comments-block.git"
+  },
+  "author": "qwemaze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qwemaze/rt-comments-block/issues"
+  },
+  "homepage": "https://github.com/qwemaze/rt-comments-block#readme",
+  "dependencies": {
+    "connect-mongo": "1.1.0",
+    "debug": "2.2.0",
+    "express": "4.13.4",
+    "express-session": "1.13.0",
+    "mongodb": "2.1.11",
+    "mongoose": "4.4.10",
+    "mongoose-createdmodified": "0.0.2",
+    "passport": "0.3.2",
+    "socket.io": "1.4.5"
+  }
+}
