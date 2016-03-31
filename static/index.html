@@ -2,23 +2,72 @@
 <html>
 
     <head>
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/style.css">
         <script type="text/javascript" src="/lib/socket.io.js"></script>
         <script type="text/javascript" src="/lib/knockout.js"></script>
         <script type="text/javascript" src="/lib/knockout-es5.js"></script>
+        <script type="text/javascript" src="/js/bindings.js"></script>
         <script type="text/javascript" src="/js/handler.js"></script>
         <script type="text/javascript" src="/js/comment.js"></script>
         <script type="text/javascript" src="/js/index.js"></script>
     </head>
 
     <body>
-        <ul id="messages" data-bind="foreach: rtc.vm.comments">
-            <li data-bind="text: body"></li>
-        </ul>
-        <form>
-            <input autocomplete="off" data-bind="value: rtc.vm.myComment" />
-            <button type="submit" data-bind="click: rtc.submit">Send</button>
-        </form>
+        <div id="post-comment" data-bind="template: 'form-tmpl'"></div>
+        <div id="messages" data-bind="foreach:{
+            data: rtc.vm.comments.filter(function(c){return !c.parent}),
+            as: 'comment'
+        }">
+            <div class="comment" data-bind="template: 'comment-tmpl'"></div>
+        </div>
     </body>
+
+    <script id="form-tmpl" type="text/html">
+        <form>
+            <div contenteditable class="textarea" data-bind="contentEditable: myComment"></div>
+            <button type="submit" data-bind="click: reply">Send</button>
+        </form>
+    </script>
+
+    <script id="comment-tmpl" type="text/html">
+        <div class="self">
+            <div class="content">
+                <div class="heading">
+                    <span class="toggle" data-bind="click: comment.toggleSelf">
+                        <i class="fa fa-square" data-bind="css:{
+                            'fa-square': comment.collapsedSelf,
+                            'fa-minus': !comment.collapsedSelf
+                        }"></i>
+                    </span>
+                    <span class="user">
+                        <span data-bind="text: comment.user"></span>
+                    </span>
+                    <span class="info">
+                        <span data-bind="text: comment.getPoints()"></span>
+                        <span> | </span>
+                        <span data-bind="text: comment.getCreated()"></span>
+                    </span>
+                </div>
+                <div class="body" data-bind="visible: !comment.collapsedSelf">
+                    <span data-bind="text: comment.body"></span>
+                </div>
+                <div class="footing" data-bind="visible: !comment.collapsedSelf">
+                    <span class="voting">
+                        <i class="fa fa-thumbs-up" data-bind="click: comment.upVote"></i>
+                        <i class="fa fa-thumbs-up" style="transform:rotate(180deg)" data-bind="click: comment.downVote"></i>
+                    </span>
+                    <a href="" data-bind="click: comment.toggleReply">reply</a>
+                    <div calss="comment-reply" data-bind="template: 'form-tmpl', visible: !comment.collapsedReply"></div>
+                </div>
+            </div>
+        </div>
+        <div class="children" data-bind="visible: !comment.collapsedSelf, foreach:{
+            data: comment.getChilds(),
+            as: 'comment'
+        }">
+            <div class="comment" data-bind="template: 'comment-tmpl'"></div>
+        </div>
+    </script>
 
 </html>

@@ -6,6 +6,14 @@
     		window.rtc.vm.comments.push(Comment(data));
     	});
 
+        socket.on('vote', function(data){
+            var c = window.rtc.vm.comments.find(function(c){return c._id == data.__id});
+            if(c){
+                c.ups = data.ups;
+                c.downs = data.downs;
+            }
+        });
+
     	socket.on('initial', function(data){
     		console.log('initial', data);
             if(data && data.length){
