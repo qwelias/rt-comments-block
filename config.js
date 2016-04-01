@@ -7,7 +7,7 @@ module.exports = Object.freeze({
     	cookie: {
     		path: '/',
     		httpOnly: true,
-            domain: '.test.com',
+            domain: process.env.DOMAIN || '.test.com',
     		maxAge: 24*60*60*1000
     	},
     	maxAge: 24*60*60*1000,
