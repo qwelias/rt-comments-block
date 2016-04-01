@@ -30,7 +30,7 @@
         return new Date(this.created).toLocaleString('ru');
     };
     Comment.prototype.reply = function(){
-        return window.rtc.submit.call(this) || this.toggleReply();
+        return window.rtc.submitComment.call(this) || this.toggleReply();
     };
     Comment.prototype.toggleSelf = function(){
         this.collapsedSelf = !this.collapsedSelf;

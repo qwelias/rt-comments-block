@@ -93,5 +93,7 @@ body {
     border: 1px solid gray;
     min-height: 5em;
     overflow: auto;
-    width: 40em;
+    width: 20em;
+    padding: 0.3em;
+    resize: horizontal;
 }
