@@ -54,8 +54,19 @@
                 </div>
                 <div class="footing" data-bind="visible: !comment.collapsedSelf">
                     <span class="voting">
-                        <i class="fa fa-thumbs-up" data-bind="click: comment.upVote"></i>
-                        <i class="fa fa-thumbs-up" style="transform:rotate(180deg)" data-bind="click: comment.downVote"></i>
+                        <i class="fa" data-bind="
+                            click: comment.upVote,
+                            css:{
+                                'fa-thumbs-up': comment.ups.indexOf(true) > -1,
+                                'fa-thumbs-o-up': comment.ups.indexOf(true) < 0
+                            }"></i>
+                        <i class="fa fa-thumbs-up" style="transform:rotate(180deg)" data-bind="
+                            click: comment.downVote,
+                            css:{
+                                'fa-thumbs-up': comment.downs.indexOf(true) > -1,
+                                'fa-thumbs-o-up': comment.downs.indexOf(true) < 0
+                            }
+                        "></i>
                     </span>
                     <a href="" data-bind="click: comment.toggleReply">reply</a>
                     <div calss="comment-reply" data-bind="template: 'form-tmpl', visible: !comment.collapsedReply"></div>

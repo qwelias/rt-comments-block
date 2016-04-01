@@ -46,15 +46,20 @@ body {
     font-size: 1.3em;
 }
 
-.comment .self .content .footing {}
+.comment .self .content {}
 
 .comment .children {
     padding: 0.5em 0.5em 0.5em 2em;
 }
 
-.comment .self .voting {
+.comment .self .footing .voting {
     font-size: 1.5em;
     padding: 0 0.3em;
+}
+.comment .self .footing a {
+    text-decoration: initial;
+    font-weight: 700;
+    color: #778C92;
 }
 
 .comment .self i {

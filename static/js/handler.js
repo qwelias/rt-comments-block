@@ -7,7 +7,9 @@
     	});
 
         socket.on('vote', function(data){
-            var c = window.rtc.vm.comments.find(function(c){return c._id == data.__id});
+            console.log('vote', data);
+            var c = window.rtc.vm.comments.find(function(c){return c._id == data._id});
+            console.log('c',c);
             if(c){
                 c.ups = data.ups;
                 c.downs = data.downs;
@@ -16,10 +18,11 @@
 
     	socket.on('initial', function(data){
     		console.log('initial', data);
-            if(data && data.length){
-                window.rtc.vm.comments = data.map(function(c){
+            if(data){
+                window.rtc.vm.comments = data.docs.map(function(c){
                     return Comment(c);
                 });
+                window.rtc.me = data.me;
             }
     	});
 
