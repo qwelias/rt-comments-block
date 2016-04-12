@@ -26,9 +26,7 @@ const sessionMiddleware = session(Object.assign(config.session, {
 	})
 }));
 
-app.configure('development', () => {
-    app.use(express.static(Path.join(config.root, 'static')));
-});
+app.use(express.static(Path.join(config.root, 'static')));
 
 io.use((socket, next) => sessionMiddleware(socket.request, socket.request.res, next));
 io.use((socket, next) => userMiddlware(socket.request, socket.request.res, next));
