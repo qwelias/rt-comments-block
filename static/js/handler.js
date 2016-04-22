@@ -4,7 +4,6 @@
         socket.on('comment', function(data) {
             console.log('comment', data);
     		window.rtc.vm.comments.unshift(Comment(data));
-            window.toggleResize();
     	});
 
         socket.on('vote', function(data){
@@ -24,7 +23,6 @@
                     return Comment(c);
                 });
                 window.rtc.me = data.me;
-                window.toggleResize();
             }
     	});
 
