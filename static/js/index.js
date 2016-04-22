@@ -8,9 +8,11 @@
 	if (!options.room) throw new Error('Room required');
 
 	var myName = window.name;
-	var lastHeight = document.body.clientHeight;
+	var lastHeight = null;
+	var stResize = null;
 	window.toggleResize = function(){
 		if(document.body.clientHeight == lastHeight) return;
+		lastHeight = document.body.clientHeight;
 		window.parent.resizeIframe && window.parent.resizeIframe(myName);
 	};
 
@@ -47,7 +49,8 @@
 	window.initHandler(socket);
 	socket.emit('join', options.room);
 	document.addEventListener("DOMContentLoaded", function(event) {
-		window.stResize = setTimeout(toggleResize, 200);
+		lastHeight = document.body.clientHeight;
+		stResize = setTimeout(toggleResize, 200);
 		ko.applyBindings(rtc.vm);
 	});
 })();
