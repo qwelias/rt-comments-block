@@ -9,7 +9,7 @@
 
 	var myName = window.name;
 	var lastHeight = null;
-	var stResize = null;
+	var iResize = null;
 	window.toggleResize = function(){
 		if(document.body.clientHeight == lastHeight) return;
 		lastHeight = document.body.clientHeight;
