@@ -11,9 +11,8 @@
 	var lastHeight = null;
 	var iResize = null;
 	window.toggleResize = function(){
-		console.log(document.body.clientHeight, lastHeight);
-		if(document.body.clientHeight == lastHeight) return;
-		lastHeight = document.body.clientHeight;
+		if(document.body.scrollHeight == lastHeight) return;
+		lastHeight = document.body.scrollHeight;
 		window.parent.resizeIframe && window.parent.resizeIframe(myName);
 	};
 
