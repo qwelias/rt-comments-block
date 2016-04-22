@@ -38,7 +38,9 @@
 
 <script id="comment-tmpl" type="text/html">
 	<div class="self">
-		<span class="userpic"></span>
+		<span class="userpic" data-bind="style:{
+			'background-image': 'url(//'+window.document.domain+comment.user.photo+')'
+		}"></span>
 		<div class="heading">
 			<span class="user">
                 <span data-bind="text: comment.user.name"></span>
