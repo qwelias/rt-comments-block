@@ -7,6 +7,11 @@
 
 	if (!options.room) throw new Error('Room required');
 
+	var myName = window.name;
+	window.toggleResize = function(){
+		window.parent.resizeIframe && window.parent.resizeIframe(myName);
+	};
+
 	var ko = window.ko;
 	var socket = io();
 	var rtc = window.rtc = {};
