@@ -37,13 +37,11 @@
 		<span class="userpic"></span>
 		<div class="heading">
 			<span class="user">
-                        <span data-bind="text: comment.user"></span>
+                <span data-bind="text: comment.user"></span>
 			</span>
 			<span class="info">
 			<span data-bind="text: comment.getCreated()"></span>
 			</span>
-
-
 		</div>
 		<div class="body" data-bind="visible: !comment.collapsedSelf">
 			<span data-bind="text: comment.body"></span>

@@ -7,7 +7,7 @@ module.exports = Object.freeze({
     	cookie: {
     		path: '/',
     		httpOnly: true,
-                domain: process.env.DOMAIN || '.doctor.jt.jetstyle.ru',
+            domain: process.env.DOMAIN || '.doctor.jt.jetstyle.ru',
     		maxAge: 24*60*60*1000
     	},
     	maxAge: 24*60*60*1000,
@@ -27,10 +27,19 @@ module.exports = Object.freeze({
                 'LastName',
                 'Mail'
             ],
-            getName: (user) => {
+            process: (user) => {
+                if(!user) return {
+					name: "<удалён>",
+					photo: ''
+				};
                 const name = `${user.FirstName} ${user.SecondName} ${user.LastName}`.trim();
-                if(name) return name;
-                else return user.Mail.split('@')[0];
+                return {
+                    name: name || user.Mail.split('@')[0],
+                    photo: user.Photo
+                };
+            },
+            getID: function(session){
+                return session && session.passport && session.passport[this.model];
             }
         }
     }
