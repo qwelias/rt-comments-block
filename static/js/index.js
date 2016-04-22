@@ -13,7 +13,6 @@
 		if(document.body.clientHeight == lastHeight) return;
 		window.parent.resizeIframe && window.parent.resizeIframe(myName);
 	};
-	var stResize = setTimeout(toggleResize, 200);
 
 	var ko = window.ko;
 	var socket = io();
@@ -48,6 +47,7 @@
 	window.initHandler(socket);
 	socket.emit('join', options.room);
 	document.addEventListener("DOMContentLoaded", function(event) {
+		window.stResize = setTimeout(toggleResize, 200);
 		ko.applyBindings(rtc.vm);
 	});
 })();
