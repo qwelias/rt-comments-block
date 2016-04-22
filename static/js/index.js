@@ -8,10 +8,12 @@
 	if (!options.room) throw new Error('Room required');
 
 	var myName = window.name;
+	var lastHeight = document.body.clientHeight;
 	window.toggleResize = function(){
+		if(document.body.clientHeight == lastHeight) return;
 		window.parent.resizeIframe && window.parent.resizeIframe(myName);
 	};
-	window.onresize = toggleResize;
+	var stResize = setTimeout(toggleResize, 200);
 
 	var ko = window.ko;
 	var socket = io();
