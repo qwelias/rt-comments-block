@@ -21,7 +21,7 @@
         });
     };
     Comment.prototype.getPoints = function(){
-        var ps = this.ups.length - this.downs.length - 1;
+        var ps = this.ups.length - this.downs.length;
         return ps;
     };
     Comment.prototype.getCreated = function(){
