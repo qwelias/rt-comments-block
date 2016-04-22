@@ -3,7 +3,7 @@
     window.initHandler = function(socket){
         socket.on('comment', function(data) {
             console.log('comment', data);
-    		window.rtc.vm.comments.push(Comment(data));
+    		window.rtc.vm.comments.unshift(Comment(data));
     	});
 
         socket.on('vote', function(data){
@@ -27,7 +27,7 @@
     	});
 
     	socket.on('err', function(e){
-    		alert(e);
+    		console.error(e);
     	});
     };
 })();

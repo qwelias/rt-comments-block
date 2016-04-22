@@ -21,10 +21,8 @@
         });
     };
     Comment.prototype.getPoints = function(){
-        var ps = this.ups.length - this.downs.length;
-        var text = ' point';
-        if(ps !== 1) text = text+'s';
-        return ps+text;
+        var ps = this.ups.length - this.downs.length - 1;
+        return ps;
     };
     Comment.prototype.getCreated = function(){
         return new Date(this.created).toLocaleString('ru');

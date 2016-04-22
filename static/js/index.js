@@ -1,8 +1,7 @@
 (function() {
 	"use strict";
-
 	var options = Object.assign({
-		room: 3321
+		room: window.location.pathname.replace('/','')
 	}, window.parent.rtc || {});
 	console.log("RTC", options);
 

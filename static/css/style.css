@@ -1,99 +1,171 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body,
 html {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 body {
-    font: 14px Helvetica, Arial;
-    background-color: #EFEFEF;
-    padding: 1em;
+	font: 14px Helvetica, Arial;
+	background-color: #EFEFEF;
+	padding: 1em;
 }
 
 #messages {
-    border-top: 1px solid #CDCDCD;
+	/*	border-top: 1px solid #CDCDCD;*/
+	padding: 1em 0;
 }
 
-.comment {
-    background-color: rgba(0, 0, 0, 0.03);
-    margin-top: 1em;
-    padding: 0.5em 0.1em;
+.jetteam-chat {
+	background: #fff;
+	padding: 1em;
 }
 
-.comment .self .content > div {
-    padding: 0.3em 1em;
+.jetteam-chat .userpic {
+	display: block;
+	width: 3em;
+	height: 3em;
+	background-size: cover;
+	border-radius: 50%;
+	/*    float: left;*/
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-image: url(https://scontent.xx.fbcdn.net/hprofile-ash2/v/t1.0-1/p160x160/10906569_508605945949265_4706016487623588404_n.jpg?oh=579c701ee0d8b26d29663203e5f7f049&oe=57BDCF5E)
 }
 
-.comment .self .content .heading .toggle {
-    margin-right: 0.5em;
+.jetteam-chat .comment {
+	/*	background-color: rgba(0, 0, 0, 0.03);*/
+	/*	margin-top: 1em;*/
+	/*	padding: 0.5em 0.1em;*/
 }
 
-.comment .self .content .heading .user {
-    font-weight: 900;
+.jetteam-chat .comment .self > div {
+	/*	padding: 0.3em 1em;*/
 }
 
-.comment .self .content .heading .info {
-    font-style: oblique;
+.jetteam-chat .comment .self .heading .toggle {
+	margin-right: 0.5em;
 }
 
-.comment .self .content .body {
-    font-size: 1.3em;
+.jetteam-chat .comment .self .heading .user {
+	/*    font-weight: 900;*/
+	color: #4B99DE;
 }
 
-.comment .self .content {}
-
-.comment .children {
-    padding: 0.5em 0.5em 0.5em 2em;
+.jetteam-chat .comment .self .heading .info {
+	/*    font-style: oblique;*/
+	color: #999;
 }
 
-.comment .self .footing .voting {
-    font-size: 1.5em;
-    padding: 0 0.3em;
-}
-.comment .self .footing a {
-    text-decoration: initial;
-    font-weight: 700;
-    color: #778C92;
+.jetteam-chat .comment .self .body {
+	/*    font-size: 1.3em;*/
+	color: #333;
+	padding: 0.3em 0em;
+	line-height: 1.4em;
+	max-width: 50em;
 }
 
-.comment .self i {
-    cursor: pointer;
+.jetteam-chat .comment .self {
+	padding-left: 4em;
+	position: relative;
+	margin-bottom: 1em;
 }
 
-.comment .self .content {}
-
-.f-left {
-    float: left;
+.jetteam-chat .comment .children {
+	padding: 0.5em 0.5em 0.5em 3.5em;
 }
 
-.f-right {
-    float: right;
+.jetteam-chat .comment .self .footing .voting {
+	color: #ccc;
+	display: none
 }
 
-.of-x-hidden {
-    overflow-x: hidden;
+.jetteam-chat .replylink {
+	text-decoration: initial;
+	/* font-weight: 700; */
+	/* color: #778C92; */
+	/* color: #4B99DE; */
+	color: #999;
+	font-size: 0.9em;
+}
+.jetteam-chat .replylink:hover {
+	color: #666;
 }
 
-.w-auto {
-    width: auto;
+.jetteam-chat .comment .self:hover >.footing> .voting {
+	display: inline
 }
 
-.d-block {
-    display: block;
+.jetteam-chat .comment .self .footing .voting i:hover {
+	color: #999;
 }
 
-.textarea {
-    background-color: white;
-    border: 1px solid gray;
-    min-height: 5em;
-    overflow: auto;
-    width: 20em;
-    padding: 0.3em;
-    resize: horizontal;
+.jetteam-chat .comment-reply {margin-top: 1em}
+.jetteam-chat .rating {}
+
+.jetteam-chat .rating.pos {
+	color: green
+}
+
+.jetteam-chat .rating.neg {
+	color: maroon
+}
+
+.jetteam-chat .sendbtn {
+	background: #54B2EA;
+	padding: 0.7em 1em;
+	display: inline-block;
+	/* float: right; */
+	margin-top: .5em;
+	border-radius: 2px;
+	color: #fff;
+	cursor: pointer
+}
+
+.jetteam-chat .sendbtn:hover {
+	background: #3D9AD2;
+}
+
+.jetteam-chat .comment .self i {
+	cursor: pointer;
+	margin-left: 0.2em;
+}
+
+.jetteam-chat .textarea {
+	background-color: white;
+	border: 1px solid gray;
+	min-height: 5em;
+	max-width: 50em;
+	overflow: auto;
+	/*	width: 20em;*/
+	padding: 0.3em;
+	resize: horizontal;
+	/*	overflow: hidden;*/
+	/*	display: inline;*/
+	box-sizing: border-box;
+	width: 100%;
+	background-color: #fff;
+	white-space: pre-wrap;
+	font-size: 1em;
+	padding: 1em;
+	resize: none;
+	border-radius: 2px;
+	background-clip: padding-box;
+	word-wrap: break-word;
+	border: 1px solid #e1e4e6;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .01), 0 2px 1px rgba(0, 0, 0, .04);
+	transition-property: height;
+	transition-duration: .25s;
+}
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+	color: #aaa
 }

@@ -1,13 +1,13 @@
 module.exports = Object.freeze({
     root: __dirname,
-    PORT: process.env.PORT || 3300,
+    PORT: process.env.PORT || 4998,
     session: {
     	secret: 'doctor secret',
     	key: 'doctor.sid',
     	cookie: {
     		path: '/',
     		httpOnly: true,
-            domain: process.env.DOMAIN || '.test.com',
+                domain: process.env.DOMAIN || '.doctor.jt.jetstyle.ru',
     		maxAge: 24*60*60*1000
     	},
     	maxAge: 24*60*60*1000,
@@ -23,6 +23,7 @@ module.exports = Object.freeze({
             fields: [ // optional, I think
                 'FirstName',
                 'SecondName',
+                'Photo',
                 'LastName',
                 'Mail'
             ],
