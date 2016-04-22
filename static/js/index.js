@@ -50,7 +50,7 @@
 	socket.emit('join', options.room);
 	document.addEventListener("DOMContentLoaded", function(event) {
 		lastHeight = document.body.clientHeight;
-		stResize = setTimeout(toggleResize, 200);
+		iResize = setInterval(toggleResize, 200);
 		ko.applyBindings(rtc.vm);
 	});
 })();
