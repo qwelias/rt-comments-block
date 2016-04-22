@@ -11,6 +11,7 @@
 	var lastHeight = null;
 	var iResize = null;
 	window.toggleResize = function(){
+		console.log(document.body.clientHeight, lastHeight);
 		if(document.body.clientHeight == lastHeight) return;
 		lastHeight = document.body.clientHeight;
 		window.parent.resizeIframe && window.parent.resizeIframe(myName);
@@ -49,7 +50,6 @@
 	window.initHandler(socket);
 	socket.emit('join', options.room);
 	document.addEventListener("DOMContentLoaded", function(event) {
-		lastHeight = document.body.clientHeight;
 		iResize = setInterval(toggleResize, 200);
 		ko.applyBindings(rtc.vm);
 	});
