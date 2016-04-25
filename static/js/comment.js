@@ -8,6 +8,7 @@
         fields.map(function(f){
             self[f] = data[f];
         });
+        this.body = this.body.replace(/\n/g, '</br>');
         this.collapsedSelf = false;
         this.collapsedReply = true;
         this.myComment = '';
