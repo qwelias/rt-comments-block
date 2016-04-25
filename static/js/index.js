@@ -7,13 +7,14 @@
 
 	if (!options.room) throw new Error('Room required');
 
-	var myName = window.name;
+	var ME = window.parent.document.querySelector('iframe[name='+window.name+']');
 	var lastHeight = null;
 	var iResize = null;
+
 	window.toggleResize = function(){
 		if(document.body.scrollHeight == lastHeight) return;
 		lastHeight = document.body.scrollHeight;
-		window.parent.resizeIframe && window.parent.resizeIframe(myName);
+		ME.height = ME.contentWindow.document.body.scrollHeight + "px";
 	};
 
 	var ko = window.ko;
@@ -49,7 +50,7 @@
 	window.initHandler(socket);
 	socket.emit('join', options.room);
 	document.addEventListener("DOMContentLoaded", function(event) {
-		iResize = setInterval(toggleResize, 200);
+		iResize = ME && setInterval(toggleResize, 200);
 		ko.applyBindings(rtc.vm);
 	});
 })();
