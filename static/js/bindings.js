@@ -17,13 +17,13 @@
 		init: function(element, valueAccessor) {
 			var val = valueAccessor();
 			element.onkeyup = function() {
-				val(element.textContent);
+				val(element.innerText);
 			};
 		},
 		update: function(element, valueAccessor) {
 			var val = valueAccessor()()
 			if (val == "")
-				element.textContent = valueAccessor()();
+				element.innerText = val;
 		}
 	});
 })();
