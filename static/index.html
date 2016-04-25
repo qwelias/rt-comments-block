@@ -53,11 +53,7 @@
 			<span data-bind="text: comment.body"></span>
 		</div>
 		<div class="footing" data-bind="visible: !comment.collapsedSelf">
-<<<<<<< Updated upstream
-			<a class="replylink" href="" data-bind="click: comment.toggleReply">Reply</a>
-=======
 			<a class="replylink" href="" data-bind="click: comment.toggleReply">Ответить</a>
->>>>>>> Stashed changes
 			<span class="rating" data-bind="
 				text:(comment.getPoints()<0?'':'+')+ comment.getPoints(),
 				visible: comment.getPoints()!=0,
